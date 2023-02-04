@@ -1,0 +1,20 @@
+#PARA ARCHIVO DE SSH A CONTROLAR
+
+El archivo debe estar separado por;
+
+El orden de los datos es el siguiente: 
+    nombre de la conexion
+    ip de la conexion
+    puerto de conexion
+    1 o 0, dependiendo si la conexion es mediante vpn o no
+    si el campo anterior es 1, colocar el nombre del script que conecta la vpn, en caso de ser 0, tambien registrar 0
+Ejemplos de conexiones:
+    visandes-test;172.17.1.9;6192;1;conect-openvpn.sh
+    cfc-test;172.17.1.9;7200;0;0
+
+El quinto campo (nombre del script) únicamente debe contener el nombre del archivo y dichos archivos deben estar en la misma ruta que el principal (autossh.sh)
+
+
+#SCRIPTS DE CONEXION A VPN
+Los scripts deben verificar la conexion y en caso de fallo, intentar reconectarse nuevamente.
+Deben devolver el valor de 0 (CERO) en caso de EXITO, en caso de FALLO devolver cualquier valor (1 preferentemente).
